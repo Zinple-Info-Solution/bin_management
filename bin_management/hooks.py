@@ -5,6 +5,19 @@ app_description = "Bin locations on top of the ERPNext warehouse tree"
 app_email = "akshayr@zinplemail.com"
 app_license = "mit"
 
+required_apps = ["erpnext"]
+
+after_install = "bin_management.setup.after_install"
+after_migrate = "bin_management.setup.after_migrate"
+
+doctype_js = {"Warehouse": "public/js/warehouse.js"}
+
+doc_events = {
+	"Warehouse": {
+		"validate": "bin_management.overrides.warehouse.validate",
+	},
+}
+
 # Apps
 # ------------------
 

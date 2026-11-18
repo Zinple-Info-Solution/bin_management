@@ -2,6 +2,12 @@
 
 Bin locations on top of the ERPNext warehouse tree
 
+Bins are ordinary leaf warehouses, so stock balances, transfers and Putaway Rules keep working.
+
+- **Bin Layout Generator**: builds an Aisle > Rack > Shelf > Bin warehouse tree (codes such as `A-03-2-1`) under a group warehouse in one step. Running it again with wider ranges adds only the missing nodes. Open it from a group Warehouse with **Generate Bin Layout**.
+- **Location fields on Warehouse**: Location Type, Location Code, Bin Barcode (must be unique), capacity and dimensions, in a "Bin Location" section.
+- **Stock by Bin report**: item quantities per bin, filterable by warehouse, aisle, rack, item and item group, with an option to list empty bins.
+
 ### Installation
 
 You can install this app using the [bench](https://github.com/frappe/bench) CLI:

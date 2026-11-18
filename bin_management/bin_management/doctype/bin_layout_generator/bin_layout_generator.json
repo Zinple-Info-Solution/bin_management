@@ -1,0 +1,241 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-11-17 10:00:00.000000",
+ "description": "Creates an Aisle > Rack > Shelf > Bin warehouse tree in one step",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "warehouse",
+  "column_break_main",
+  "name_prefix",
+  "aisle_section",
+  "aisle_from",
+  "column_break_aisle",
+  "aisle_to",
+  "rack_section",
+  "rack_from",
+  "column_break_rack",
+  "rack_to",
+  "shelf_section",
+  "shelf_from",
+  "column_break_shelf",
+  "shelf_to",
+  "bin_section",
+  "bin_from",
+  "column_break_bin",
+  "bin_to",
+  "bin_defaults_section",
+  "set_barcode",
+  "column_break_defaults",
+  "bin_capacity",
+  "capacity_uom",
+  "preview_section",
+  "preview"
+ ],
+ "fields": [
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "description": "Group warehouse the aisles are created under",
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Parent Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Added before every code, e.g. Stores gives Stores-A-03-2-1. Keeps names unique when several warehouses use the same layout.",
+   "fieldname": "name_prefix",
+   "fieldtype": "Data",
+   "label": "Name Prefix"
+  },
+  {
+   "fieldname": "aisle_section",
+   "fieldtype": "Section Break",
+   "label": "Aisles"
+  },
+  {
+   "default": "A",
+   "description": "Letter A to Z",
+   "fieldname": "aisle_from",
+   "fieldtype": "Data",
+   "label": "Aisle From",
+   "length": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_aisle",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "D",
+   "fieldname": "aisle_to",
+   "fieldtype": "Data",
+   "label": "Aisle To",
+   "length": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "rack_section",
+   "fieldtype": "Section Break",
+   "label": "Racks"
+  },
+  {
+   "default": "1",
+   "description": "Racks in each aisle",
+   "fieldname": "rack_from",
+   "fieldtype": "Int",
+   "label": "Rack From",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_rack",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "10",
+   "fieldname": "rack_to",
+   "fieldtype": "Int",
+   "label": "Rack To",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "shelf_section",
+   "fieldtype": "Section Break",
+   "label": "Shelves"
+  },
+  {
+   "default": "1",
+   "description": "Shelves in each rack",
+   "fieldname": "shelf_from",
+   "fieldtype": "Int",
+   "label": "Shelf From",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_shelf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "5",
+   "fieldname": "shelf_to",
+   "fieldtype": "Int",
+   "label": "Shelf To",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "bin_section",
+   "fieldtype": "Section Break",
+   "label": "Bins"
+  },
+  {
+   "default": "1",
+   "description": "Bins in each shelf",
+   "fieldname": "bin_from",
+   "fieldtype": "Int",
+   "label": "Bin From",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_bin",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "4",
+   "fieldname": "bin_to",
+   "fieldtype": "Int",
+   "label": "Bin To",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "bin_defaults_section",
+   "fieldtype": "Section Break",
+   "label": "Bin Defaults"
+  },
+  {
+   "default": "1",
+   "description": "Use each bin's warehouse name (without the company suffix) as its barcode",
+   "fieldname": "set_barcode",
+   "fieldtype": "Check",
+   "label": "Set Bin Barcode"
+  },
+  {
+   "fieldname": "column_break_defaults",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bin_capacity",
+   "fieldtype": "Float",
+   "label": "Capacity",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "capacity_uom",
+   "fieldtype": "Link",
+   "label": "Capacity UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "preview_section",
+   "fieldtype": "Section Break",
+   "label": "Preview"
+  },
+  {
+   "fieldname": "preview",
+   "fieldtype": "HTML",
+   "label": "Preview"
+  }
+ ],
+ "hide_toolbar": 0,
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-18 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Bin Management",
+ "name": "Bin Layout Generator",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "print": 0,
+   "read": 1,
+   "role": "System Manager",
+   "share": 0,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 0,
+   "print": 0,
+   "read": 1,
+   "role": "Stock Manager",
+   "share": 0,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}
